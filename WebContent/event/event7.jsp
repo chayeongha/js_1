@@ -21,7 +21,7 @@
 <body>
 			
 			<div>
-					<p>ALL<input type="checkbox" class="c1" id="all"></p>
+					<p>ALL<input type="checkbox" id="all" class="c1"  ></p>
 					<p>CHECK1<input type="checkbox" class="c1" ></p>
 					<p>CHECK2<input type="checkbox" class="c1"  ></p>
 					<p>CHECK3<input type="checkbox" class="c1"  ></p>
@@ -37,7 +37,7 @@
 					<script type="text/javascript">
 					
 	/*********************ALL체크햇을시 모두체크 해제*********************** */	
-				var all= document.getElementById('all');
+				var all= document.getElementById("all");
 				
 				var c1 = document.getElementsByClassName("c1");
 					
@@ -49,7 +49,7 @@
 				/* if(c1[0].checked==true){ */
 				/* c1[0]=> this로 바꿀수 있다. */
 					
-					for(var i=1; i<c1.length; i++){
+					for(var i=0; i<c1.length; i++){
 						c1[i].checked=this.checked; 
 						/* true=> this.checked ;로 사용가능. */
 							}
@@ -64,52 +64,89 @@
 			});
 				
 			
-	/**********************ALL체크햇을시 ALET OK,해제햇을시 FAIL********************** */
-				
-		 
-				
-			btn.addEventListener("click", function () {
-				
-				if(all.checked){
-					
-					location.href="../js_test1.jsp";
-				}else{
-					
-					alert("약관에 동의하세요");
-				}
-				
-			});	 
+
 				
 		/* ************************하나라도 체크해제시 ALL에체크해제************************************ */
 			
 		
 	
-		for(var i=0;i<c1.length;i++){
+		/* for(var i=0;i<c1.length;i++){
 		
-		c1[i].addEventListener("click ", function () {
-		
-			var c1s = document.getElementsByClassName("c1");
-			var result=true;
+			c1[i].addEventListener("click ", function () {
 			
-			for (var j=0; j<c1s.length;j++){
+				var num=0;
 				
-				if(!c1s[j].checked){
+				for (var j=1; j<c1.length;j++){
 					
-					result=false;
-					break;
+					if(c1[j].checked){
+						
+						num= num+1;
+					}else{
+						
+						num=num-1;
+					}
+	
 				}
-
+				if(num==3){
+					
+					all.checked=true;
+					
+				}else{
+					all.checked=false;
+				}
+				
+				
+				
+			});
+			
+	} */
+		
+		for(var i=0;i<c1.length;i++){
+				var result=true;
+			
+			c1[i].addEventListener("click" , function () {
+				
+				
+				for(var j=1; j<c1.length; j++){
+					
+					if (c1[j].checked==false) {
+						
+					result=false;
+						
+					break;
+						
+					}
+					
+					
+				}
+				
+				
+			})
+				all.checked=result;
+			
+		}
+		
+		
+		
+				
+		/**********************ALL체크햇을시 ALET OK,해제햇을시 FAIL********************** */
+		
+		 
+		
+		btn.addEventListener("click", function () {
+			
+			if(all.checked){
+				alert("성공");
+				/* location.href="../js_test1.jsp"; */
+			}else{
+				
+				alert("실패");
+				/* alert("약관에 동의하세요"); */
 			}
 			
-			/*   최종목적은 all에 체크가들어가냐 마냐*/
-			
-			all.checked=result;
-			
-			
-		});
-			
-				}
-				
+		});	 		
+		
+		
 					
 					</script>
 					
