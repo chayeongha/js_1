@@ -9,13 +9,18 @@
 <body>
 
 
-	<p>TEST1</p>
-	<p id="p1">TEST2</p>
-	<p>TEST3</p>
+	<p class="pc1">TEST1</p>
+	<p id="p1" class="pc1">TEST2
+	<a href="">
+	<img alt="" src="./images/animal.jpg">
+	</a>
+	
+	</p>
+	<p class="pc1">TEST3</p>
 	
 	<script type="text/javascript">
 	
-	var v =  document.querySelector("#p1");// css아이디선택자
+	var v =  document.querySelector(".pc1");// css아이디선택자 -무조건 한개가져옴 
 	
 	alert(v.innerHTML);
 	
